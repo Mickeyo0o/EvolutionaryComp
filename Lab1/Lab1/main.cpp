@@ -6,6 +6,7 @@
 #include "Node.h"
 #include "RandomHamiltonianCycleGenerator.h"
 #include "DistanceMatrix.h"
+#include "NNLastGenerator.h"
 
 using namespace std;
 
@@ -52,13 +53,24 @@ int main()
 
     int nodes_to_select = (nodeList.size() + 1 ) / 2;
 
-    RandomHamiltonianCycleGenerator generator(nodeList.size(), nodes_to_select, 777);
+    RandomHamiltonianCycleGenerator generatorRandom(nodeList.size(), nodes_to_select, 777);
+    NNLastGenerator generatorNNLast(combinedMatrix, nodes_to_select);
 
     for (int repetition; repetition < 200; repetition = repetition + 1)
     {
-        std::vector<int> cycle = generator.generateCycle();
+        std::cout << repetition << std::endl;
+
+        std::vector<int> cycle = generatorRandom.generateCycle();
 
         std::cout << "Generated Random Cycle Indices: ";
+        for (int index : cycle) {
+            std::cout << index << " ";
+        }
+        std::cout << std::endl;
+
+        cycle = generatorNNLast.generateCycle(repetition);
+
+        std::cout << "Generated NNLast Cycle Indices: ";
         for (int index : cycle) {
             std::cout << index << " ";
         }

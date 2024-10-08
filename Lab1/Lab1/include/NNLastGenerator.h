@@ -6,7 +6,7 @@ class NNLastGenerator
 {
     public:
         NNLastGenerator(const std::vector<std::vector<int>>& combinedMatrix, int nodes_in_cycle);
-        std::vector<int> generateCycle();
+        std::vector<int> generateCycle(int start_pos);
         virtual ~NNLastGenerator();
 
     protected:

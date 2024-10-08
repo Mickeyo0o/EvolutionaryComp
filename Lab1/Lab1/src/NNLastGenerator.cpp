@@ -1,4 +1,5 @@
 #include "NNLastGenerator.h"
+#include <limits>
 
 NNLastGenerator::NNLastGenerator(const std::vector<std::vector<int>>& combinedMatrix, int nodes_in_cycle)
 {
@@ -10,20 +11,17 @@ std::vector<int> NNLastGenerator::generateCycle(int start_pos) {
     std::vector<int> cycle;
     std::vector<bool> visited;
     visited.resize(combinedMatrix.size(), false);
-    int currentNode = startNode;
+    int currentNode = start_pos;
     visited[currentNode] = true;
     cycle.push_back(currentNode);
 
-    // Generate the nearest neighbor cycle
-    for (int i = 1; i < numNodes; ++i) {
-        float nearestDistance = std::numeric_limits<float>::max();
+    for (int i = 1; i < nodes_in_cycle; ++i) {
+        int nearestDistance = std::numeric_limits<int>::max();
         int nearestNode = -1;
 
-        for (int j = 0; j < numNodes; ++j) {
-            // Check the distance from current node to j
-            // Only consider unvisited nodes
+        for (int j = 0; j < combinedMatrix.size(); ++j) {
             if (!visited[j]) {
-                float distance = distanceMatrix[currentNode][j];
+                int distance = combinedMatrix[currentNode][j];
                 if (distance < nearestDistance) {
                     nearestDistance = distance;
                     nearestNode = j;
@@ -31,16 +29,12 @@ std::vector<int> NNLastGenerator::generateCycle(int start_pos) {
             }
         }
 
-        // Add the nearest node to the cycle
         if (nearestNode != -1) {
             visited[nearestNode] = true;
             cycle.push_back(nearestNode);
-            currentNode = nearestNode; // Move to the nearest node
+            currentNode = nearestNode;
         }
     }
-
-    // Return to the starting node to complete the cycle
-    cycle.push_back(startNode);
 
     return cycle;
 }
