@@ -3,81 +3,86 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "HandleData.h"
 #include "Node.h"
 #include "RandomHamiltonianCycleGenerator.h"
-#include "DistanceMatrix.h"
+#include "CostDistanceInfo.h"
 #include "NNLastGenerator.h"
+#include "NNAllGenerator.h"
+#include "GreedyCycleGenerator.h"
 
 using namespace std;
 
 int main()
 {
-    std::ifstream file("TSPA.csv");
-    //std::ifstream file("TSPB.csv");
-    if (!file.is_open()) {
-        std::cerr << "Error opening file" << std::endl;
-        return 1;
-    }
+    const std::string fileNames[] = {"TSPA", "TSPB"};
+    for(size_t fileNameId = 0; fileNameId <= 1; fileNameId++) {
+        std::string fileNameNoExt = fileNames[fileNameId];
+        std::string fileName = fileNameNoExt + ".csv";
+        std::vector<Node> nodeList = loadNodes(fileName);
 
-    std::vector<Node> nodeList;
+        CostDistanceInfo costDistanceInfo(nodeList);
 
-    std::string line;
-    while (std::getline(file, line)) {
-        std::stringstream ss(line);
-        std::string token;
-        int x, y, cost;
+        int nodesToSelect = (nodeList.size() + 1 ) / 2;
 
-        std::getline(ss, token, ';');
-        x = std::stoi(token);
+        RandomHamiltonianCycleGenerator generatorRandom(&costDistanceInfo, nodesToSelect, 777);
+        NNLastGenerator generatorNNLast(&costDistanceInfo, nodesToSelect);
+        NNAllGenerator generatorNNAll(&costDistanceInfo, nodesToSelect);
+        GreedyCycleGenerator generatorGreedyCycle(&costDistanceInfo, nodesToSelect);
 
-        std::getline(ss, token, ';');
-        y = std::stoi(token);
+        std::vector<std::vector<int>> randomCycles;
+        std::vector<std::vector<int>> NNLastCycles;
+        std::vector<std::vector<int>> NNAllCycles;
+        std::vector<std::vector<int>> greedyCycles;
 
-        std::getline(ss, token, ';');
-        cost = std::stod(token);
+        for (int repetition; repetition < 200; repetition++)
+        {
+            std::cout << repetition << std::endl;
 
-        nodeList.emplace_back(x, y, cost);
-    }
+            std::vector<int> cycleRandom = generatorRandom.generateCycle(repetition);
+            randomCycles.push_back(cycleRandom);
 
-    file.close();
+            std::cout << "Generated Random Cycle Indices: ";
+            for (int index : cycleRandom) {
+                std::cout << index << " ";
+            }
+            std::cout << std::endl << "Cycle cost: " << generatorRandom.calculateCycleCost(cycleRandom);
+            std::cout << std::endl;
 
-    DistanceMatrix distanceMatrix(nodeList);
-    std::vector<std::vector<int>> matrix = distanceMatrix.calculateDistanceMatrix();
+            std::vector<int> cycleNNLast = generatorNNLast.generateCycle(repetition);
+            NNLastCycles.push_back(cycleNNLast);
 
-    std::vector<int> costList;
-    for (const auto& node : nodeList) {
-        costList.push_back(node.cost);
-    }
+            std::cout << "Generated NNLast Cycle Indices: ";
+            for (int index : cycleNNLast) {
+                std::cout << index << " ";
+            }
+            std::cout << std::endl << "Cycle cost: " << generatorNNLast.calculateCycleCost(cycleNNLast);
+            std::cout << std::endl;
 
-    std::vector<std::vector<int>> combinedMatrix = distanceMatrix.combineCosts(matrix, costList);
+            std::vector<int> cycleNNAll = generatorNNAll.generateCycle(repetition);
+            NNAllCycles.push_back(cycleNNAll);
 
-    int nodes_to_select = (nodeList.size() + 1 ) / 2;
+            std::cout << "Generated NNAll Cycle Indices: ";
+            for (int index : cycleNNAll) {
+                std::cout << index << " ";
+            }
+            std::cout << std::endl << "Cycle cost: " << generatorNNAll.calculateCycleCost(cycleNNAll);
+            std::cout << std::endl;
 
-    RandomHamiltonianCycleGenerator generatorRandom(nodeList.size(), nodes_to_select, 777);
-    NNLastGenerator generatorNNLast(combinedMatrix, nodes_to_select);
+            std::vector<int> cycleGreedy = generatorGreedyCycle.generateCycle(repetition);
+            greedyCycles.push_back(cycleGreedy);
 
-    for (int repetition; repetition < 200; repetition = repetition + 1)
-    {
-        std::cout << repetition << std::endl;
-
-        std::vector<int> cycle = generatorRandom.generateCycle();
-
-        std::cout << "Generated Random Cycle Indices: ";
-        for (int index : cycle) {
-            std::cout << index << " ";
+            std::cout << "Generated Greedy Cycle Indices: ";
+            for (int index : cycleGreedy) {
+                std::cout << index << " ";
+            }
+            std::cout << std::endl << "Cycle cost: " << generatorGreedyCycle.calculateCycleCost(cycleGreedy);
+            std::cout << std::endl;
         }
-        std::cout << std::endl;
-
-        cycle = generatorNNLast.generateCycle(repetition);
-
-        std::cout << "Generated NNLast Cycle Indices: ";
-        for (int index : cycle) {
-            std::cout << index << " ";
-        }
-        std::cout << std::endl;
+        saveResults(randomCycles, fileNameNoExt + "Random.csv");
+        saveResults(NNLastCycles, fileNameNoExt + "NNLast.csv");
+        saveResults(NNAllCycles, fileNameNoExt + "NNAll.csv");
+        saveResults(greedyCycles, fileNameNoExt + "Greedy.csv");
     }
-
-
-
     return 0;
 }

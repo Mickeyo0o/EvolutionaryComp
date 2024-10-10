@@ -1,20 +1,18 @@
 #ifndef RANDOMHAMILTONIANCYCLEGENERATOR_H
 #define RANDOMHAMILTONIANCYCLEGENERATOR_H
-#include <vector>
+#include "Generator.h"
+#include <random>
+#include <algorithm>
 
-class RandomHamiltonianCycleGenerator
+class RandomHamiltonianCycleGenerator: public Generator
 {
     public:
-        RandomHamiltonianCycleGenerator(int num_of_nodes, int nodes_in_cycle, unsigned seed);
-        std::vector<int> generateCycle();
-        virtual ~RandomHamiltonianCycleGenerator();
-
-    protected:
+        RandomHamiltonianCycleGenerator(const CostDistanceInfo* costDistanceInfo, int nodesInCycle, unsigned int seed);
+        ~RandomHamiltonianCycleGenerator();
+        std::vector<int> generateCycle(int start_pos);
 
     private:
-        int num_of_nodes;
-        int nodes_in_cycle;
-        unsigned seed;
+        unsigned int seed;
 };
 
 #endif // RANDOMHAMILTONIANCYCLEGENERATOR_H

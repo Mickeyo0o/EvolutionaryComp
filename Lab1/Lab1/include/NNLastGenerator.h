@@ -1,19 +1,14 @@
 #ifndef NNLASTGENERATOR_H
 #define NNLASTGENERATOR_H
-#include <vector>
+#include <limits>
+#include "Generator.h"
 
-class NNLastGenerator
+class NNLastGenerator: public Generator
 {
     public:
-        NNLastGenerator(const std::vector<std::vector<int>>& combinedMatrix, int nodes_in_cycle);
-        std::vector<int> generateCycle(int start_pos);
+        NNLastGenerator(const CostDistanceInfo* costDistanceInfo, int nodesInCycle);
         virtual ~NNLastGenerator();
-
-    protected:
-
-    private:
-        std::vector<std::vector<int>> combinedMatrix;
-        int nodes_in_cycle;
+        std::vector<int> generateCycle(int start_pos);
 };
 
 #endif // NNLASTGENERATOR_H
