@@ -37,7 +37,7 @@ void GreedyCycleGenerator::addNodeToCycle(std::vector<int>& cycle, bool* visited
     int lastNodeIndex = cycle[cycle.size() - 1];
     int firstNodeIndex = cycle[0];
 
-    for(int i = 0; i < n; i++) { // Try adding at the end
+    for(int i = 0; i < n; i++) { // Try adding at the end/beginning
         if(!visited[i]) {
             int increaseInFunction = this->costDistanceInfo->getDistance(i, lastNodeIndex) + this->costDistanceInfo->getNodeCost(i);
             if(lastNodeIndex != firstNodeIndex) {
@@ -45,19 +45,6 @@ void GreedyCycleGenerator::addNodeToCycle(std::vector<int>& cycle, bool* visited
             }
             bestIncreaseInFunction[i] = increaseInFunction;
             bestPositionToPutNode[i] = cycle.size();
-        }
-    }
-
-    for(int i = 0; i < n; i++) { // Try adding at the beginning
-        if(!visited[i]) {
-            int increaseInFunction = this->costDistanceInfo->getDistance(i, firstNodeIndex) + this->costDistanceInfo->getNodeCost(i);
-            if(lastNodeIndex != firstNodeIndex) {
-                increaseInFunction += this->costDistanceInfo->getDistance(i, lastNodeIndex);
-            }
-            if(increaseInFunction < bestIncreaseInFunction[i]) {
-                bestIncreaseInFunction[i] = increaseInFunction;
-                bestPositionToPutNode[i] = 0;
-            }
         }
     }
 
