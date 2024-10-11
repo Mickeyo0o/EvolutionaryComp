@@ -18,6 +18,7 @@ int main()
     const std::string fileNames[] = {"TSPA", "TSPB"};
     for(size_t fileNameId = 0; fileNameId <= 1; fileNameId++) {
         std::string fileNameNoExt = fileNames[fileNameId];
+        std::cout << fileNameNoExt;
         std::string fileName = fileNameNoExt + ".csv";
         std::vector<Node> nodeList = loadNodes(fileName);
 
