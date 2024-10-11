@@ -34,12 +34,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/DistanceMatrix.h" />
+		<Unit filename="include/CostDistanceInfo.h" />
+		<Unit filename="include/Generator.h" />
+		<Unit filename="include/GreedyCycleGenerator.h" />
+		<Unit filename="include/HandleData.h" />
+		<Unit filename="include/NNAllGenerator.h" />
 		<Unit filename="include/NNLastGenerator.h" />
 		<Unit filename="include/Node.h" />
 		<Unit filename="include/RandomHamiltonianCycleGenerator.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/DistanceMatrix.cpp" />
+		<Unit filename="src/CostDistanceInfo.cpp" />
+		<Unit filename="src/Generator.cpp" />
+		<Unit filename="src/GreedyCycleGenerator.cpp" />
+		<Unit filename="src/HandleData.cpp" />
+		<Unit filename="src/NNAllGenerator.cpp" />
 		<Unit filename="src/NNLastGenerator.cpp" />
 		<Unit filename="src/Node.cpp" />
 		<Unit filename="src/RandomHamiltonianCycleGenerator.cpp" />

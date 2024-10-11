@@ -35,7 +35,12 @@ int main()
         std::vector<std::vector<int>> NNAllCycles;
         std::vector<std::vector<int>> greedyCycles;
 
-        for (int repetition; repetition < 200; repetition++)
+        std::vector<int> randomCosts;
+        std::vector<int> NNLastCosts;
+        std::vector<int> NNAllCosts;
+        std::vector<int> greedyCosts;
+
+        for (int repetition = 0; repetition < 200; repetition++)
         {
             std::cout << repetition << std::endl;
 
@@ -46,7 +51,9 @@ int main()
             for (int index : cycleRandom) {
                 std::cout << index << " ";
             }
-            std::cout << std::endl << "Cycle cost: " << generatorRandom.calculateCycleCost(cycleRandom);
+            int cost = generatorRandom.calculateCycleCost(cycleRandom);
+            randomCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
             std::vector<int> cycleNNLast = generatorNNLast.generateCycle(repetition);
@@ -56,7 +63,9 @@ int main()
             for (int index : cycleNNLast) {
                 std::cout << index << " ";
             }
-            std::cout << std::endl << "Cycle cost: " << generatorNNLast.calculateCycleCost(cycleNNLast);
+            cost = generatorNNLast.calculateCycleCost(cycleNNLast);
+            NNLastCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
             std::vector<int> cycleNNAll = generatorNNAll.generateCycle(repetition);
@@ -66,7 +75,9 @@ int main()
             for (int index : cycleNNAll) {
                 std::cout << index << " ";
             }
-            std::cout << std::endl << "Cycle cost: " << generatorNNAll.calculateCycleCost(cycleNNAll);
+            cost = generatorNNLast.calculateCycleCost(cycleNNAll);
+            NNAllCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
             std::vector<int> cycleGreedy = generatorGreedyCycle.generateCycle(repetition);
@@ -76,13 +87,16 @@ int main()
             for (int index : cycleGreedy) {
                 std::cout << index << " ";
             }
-            std::cout << std::endl << "Cycle cost: " << generatorGreedyCycle.calculateCycleCost(cycleGreedy);
+
+            cost = generatorGreedyCycle.calculateCycleCost(cycleGreedy);
+            greedyCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
         }
-        saveResults(randomCycles, fileNameNoExt + "Random.csv");
-        saveResults(NNLastCycles, fileNameNoExt + "NNLast.csv");
-        saveResults(NNAllCycles, fileNameNoExt + "NNAll.csv");
-        saveResults(greedyCycles, fileNameNoExt + "Greedy.csv");
+        saveResults(randomCycles, randomCosts, fileNameNoExt + "Random.csv");
+        saveResults(NNLastCycles, NNLastCosts, fileNameNoExt + "NNLast.csv");
+        saveResults(NNAllCycles, NNAllCosts, fileNameNoExt + "NNAll.csv");
+        saveResults(greedyCycles, greedyCosts, fileNameNoExt + "Greedy.csv");
     }
     return 0;
 }

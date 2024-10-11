@@ -14,6 +14,7 @@ class CostDistanceInfo
         int getNodeCost(size_t n) const;
         size_t getNumOfNodes() const;
         void releaseResources();
+        void calculateDistanceMatrix() const;
 
     protected:
 
