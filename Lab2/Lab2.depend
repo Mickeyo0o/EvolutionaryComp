@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1728578757 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\costdistanceinfo.cpp
+	"CostDistanceInfo.h"
+
+1728408502 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\costdistanceinfo.h
+	<vector>
+	<cmath>
+	"Node.h"
+
+1728402519 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\node.h
+
+1728581512 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\generator.cpp
+	"Generator.h"
+
+1728581512 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\generator.h
+	"CostDistanceInfo.h"
+
+1728583711 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\handledata.cpp
+	"HandleData.h"
+
+1728583711 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\handledata.h
+	<fstream>
+	<sstream>
+	<iostream>
+	<vector>
+	"Node.h"
+
+1728404563 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\node.cpp
+	"Node.h"
+	<iostream>
+
+1729175405 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\kregretgenerator.cpp
+	"KRegretGenerator.h"
+
+1729175393 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\kregretgenerator.h
+	<algorithm>
+	<iostream>
+	"Generator.h"
+
+1729175429 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	"HandleData.h"
+	"Node.h"
+	"CostDistanceInfo.h"
+	"KRegretGenerator.h"
+	"KRegretGreedyCycleCombinationGenerator.h"
+
+1729175965 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\src\kregretgreedycyclecombinationgenerator.cpp
+	"KRegretGreedyCycleCombinationGenerator.h"
+
+1729175574 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab2\include\kregretgreedycyclecombinationgenerator.h
+	<algorithm>
+	<iostream>
+	"Generator.h"
+
