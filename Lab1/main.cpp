@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <chrono>
 #include "HandleData.h"
 #include "Node.h"
 #include "RandomHamiltonianCycleGenerator.h"
@@ -15,6 +16,11 @@ using namespace std;
 
 int main()
 {
+    std::vector<double> randomTimes;
+    std::vector<double> NNLastTimes;
+    std::vector<double> NNAllTimes;
+    std::vector<double> greedyTimes;
+
     const std::string fileNames[] = {"TSPA", "TSPB"};
     for(size_t fileNameId = 0; fileNameId <= 1; fileNameId++) {
         std::string fileNameNoExt = fileNames[fileNameId];
@@ -45,20 +51,30 @@ int main()
         {
             std::cout << repetition << std::endl;
 
+            auto start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleRandom = generatorRandom.generateCycle(repetition);
+            auto end_time = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double, std::milli> timeRandom = end_time - start_time;
+            randomTimes.push_back(timeRandom.count());
             randomCycles.push_back(cycleRandom);
 
             std::cout << "Generated Random Cycle Indices: ";
             for (int index : cycleRandom) {
                 std::cout << index << " ";
             }
+
             int cost = generatorRandom.calculateCycleCost(cycleRandom);
             randomCosts.push_back(cost);
             std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
+            start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleNNLast = generatorNNLast.generateCycle(repetition);
+            end_time = std::chrono::high_resolution_clock::now();
+            timeRandom = end_time - start_time;
+            NNLastTimes.push_back(timeRandom.count());
             NNLastCycles.push_back(cycleNNLast);
+
 
             std::cout << "Generated NNLast Cycle Indices: ";
             for (int index : cycleNNLast) {
@@ -69,7 +85,11 @@ int main()
             std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
+            start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleNNAll = generatorNNAll.generateCycle(repetition);
+            end_time = std::chrono::high_resolution_clock::now();
+            timeRandom = end_time - start_time;
+            NNAllTimes.push_back(timeRandom.count());
             NNAllCycles.push_back(cycleNNAll);
 
             std::cout << "Generated NNAll Cycle Indices: ";
@@ -81,7 +101,11 @@ int main()
             std::cout << std::endl << "Cycle cost: " << cost;
             std::cout << std::endl;
 
+            start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleGreedy = generatorGreedyCycle.generateCycle(repetition);
+            end_time = std::chrono::high_resolution_clock::now();
+            timeRandom = end_time - start_time;
+            greedyTimes.push_back(timeRandom.count());
             greedyCycles.push_back(cycleGreedy);
 
             std::cout << "Generated Greedy Cycle Indices: ";
@@ -99,5 +123,8 @@ int main()
         saveResults(NNAllCycles, NNAllCosts, fileNameNoExt + "NNAll.csv");
         saveResults(greedyCycles, greedyCosts, fileNameNoExt + "Greedy.csv");
     }
+
+    std::vector<std::vector<double>> times = {randomTimes, NNLastTimes, NNAllTimes, greedyTimes};
+    saveTimes(times, "times.csv");
     return 0;
 }

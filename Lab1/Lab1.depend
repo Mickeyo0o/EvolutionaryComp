@@ -44,12 +44,13 @@
 
 1728400103 d:\github projects\evolutionarycomp\lab1\include\node.h
 
-1728644040 source:d:\github projects\evolutionarycomp\lab1\main.cpp
+1729257890 source:d:\github projects\evolutionarycomp\lab1\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
 	<string>
 	<vector>
+	<chrono>
 	"HandleData.h"
 	"Node.h"
 	"RandomHamiltonianCycleGenerator.h"
@@ -58,19 +59,19 @@
 	"NNAllGenerator.h"
 	"GreedyCycleGenerator.h"
 
-1728644040 d:\github projects\evolutionarycomp\lab1\include\handledata.h
+1729257927 d:\github projects\evolutionarycomp\lab1\include\handledata.h
 	<fstream>
 	<sstream>
 	<iostream>
 	<vector>
 	"Node.h"
 
-1728640347 d:\github projects\evolutionarycomp\lab1\include\randomhamiltoniancyclegenerator.h
+1729257066 d:\github projects\evolutionarycomp\lab1\include\randomhamiltoniancyclegenerator.h
 	"Generator.h"
 	<random>
 	<algorithm>
 
-1728640347 d:\github projects\evolutionarycomp\lab1\include\generator.h
+1729257066 d:\github projects\evolutionarycomp\lab1\include\generator.h
 	"CostDistanceInfo.h"
 
 1728640986 d:\github projects\evolutionarycomp\lab1\include\costdistanceinfo.h
@@ -78,22 +79,22 @@
 	<cmath>
 	"Node.h"
 
-1728640347 d:\github projects\evolutionarycomp\lab1\include\nnlastgenerator.h
+1729257066 d:\github projects\evolutionarycomp\lab1\include\nnlastgenerator.h
 	<limits>
 	"Generator.h"
 
-1728640347 d:\github projects\evolutionarycomp\lab1\include\nnallgenerator.h
+1729257066 d:\github projects\evolutionarycomp\lab1\include\nnallgenerator.h
 	<limits>
 	<iostream>
 	"Generator.h"
 
-1728640347 d:\github projects\evolutionarycomp\lab1\include\greedycyclegenerator.h
+1729257066 d:\github projects\evolutionarycomp\lab1\include\greedycyclegenerator.h
 	"Generator.h"
 
-1728640347 source:d:\github projects\evolutionarycomp\lab1\src\nnlastgenerator.cpp
+1729257066 source:d:\github projects\evolutionarycomp\lab1\src\nnlastgenerator.cpp
 	"NNLastGenerator.h"
 
-1728640347 source:d:\github projects\evolutionarycomp\lab1\src\randomhamiltoniancyclegenerator.cpp
+1729257066 source:d:\github projects\evolutionarycomp\lab1\src\randomhamiltoniancyclegenerator.cpp
 	"RandomHamiltonianCycleGenerator.h"
 	<random>
 	<algorithm>
@@ -104,12 +105,12 @@
 1728640347 source:d:\github projects\evolutionarycomp\lab1\src\generator.cpp
 	"Generator.h"
 
-1728640347 source:d:\github projects\evolutionarycomp\lab1\src\greedycyclegenerator.cpp
+1729257066 source:d:\github projects\evolutionarycomp\lab1\src\greedycyclegenerator.cpp
 	"GreedyCycleGenerator.h"
 
-1728643822 source:d:\github projects\evolutionarycomp\lab1\src\handledata.cpp
+1729257915 source:d:\github projects\evolutionarycomp\lab1\src\handledata.cpp
 	"HandleData.h"
 
-1728640347 source:d:\github projects\evolutionarycomp\lab1\src\nnallgenerator.cpp
+1729257066 source:d:\github projects\evolutionarycomp\lab1\src\nnallgenerator.cpp
 	"NNAllGenerator.h"
 

@@ -44,3 +44,19 @@ void saveResults(std::vector<std::vector<int>> cycles, std::vector<int> costs, s
     }
     file.close();
 }
+
+void saveTimes(std::vector<std::vector<double>> times, std::string fileName) {
+    std::ofstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file" << std::endl;
+        throw 1;
+    }
+
+    for (size_t row = 0; row < times[0].size(); ++row) {
+        for (size_t col = 0; col < times.size(); ++col) {
+            file << times[col][row] << ",";
+        }
+        file << "\n";
+    }
+    file.close();
+}
