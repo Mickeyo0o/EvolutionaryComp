@@ -54,8 +54,8 @@ int main()
             auto start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleRandom = generatorRandom.generateCycle(repetition);
             auto end_time = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double, std::milli> timeRandom = end_time - start_time;
-            randomTimes.push_back(timeRandom.count());
+            std::chrono::duration<double, std::milli> timePeriod = end_time - start_time;
+            randomTimes.push_back(timePeriod.count());
             randomCycles.push_back(cycleRandom);
 
             std::cout << "Generated Random Cycle Indices: ";
@@ -71,8 +71,8 @@ int main()
             start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleNNLast = generatorNNLast.generateCycle(repetition);
             end_time = std::chrono::high_resolution_clock::now();
-            timeRandom = end_time - start_time;
-            NNLastTimes.push_back(timeRandom.count());
+            timePeriod = end_time - start_time;
+            NNLastTimes.push_back(timePeriod.count());
             NNLastCycles.push_back(cycleNNLast);
 
 
@@ -88,8 +88,8 @@ int main()
             start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleNNAll = generatorNNAll.generateCycle(repetition);
             end_time = std::chrono::high_resolution_clock::now();
-            timeRandom = end_time - start_time;
-            NNAllTimes.push_back(timeRandom.count());
+            timePeriod = end_time - start_time;
+            NNAllTimes.push_back(timePeriod.count());
             NNAllCycles.push_back(cycleNNAll);
 
             std::cout << "Generated NNAll Cycle Indices: ";
@@ -104,8 +104,8 @@ int main()
             start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> cycleGreedy = generatorGreedyCycle.generateCycle(repetition);
             end_time = std::chrono::high_resolution_clock::now();
-            timeRandom = end_time - start_time;
-            greedyTimes.push_back(timeRandom.count());
+            timePeriod = end_time - start_time;
+            greedyTimes.push_back(timePeriod.count());
             greedyCycles.push_back(cycleGreedy);
 
             std::cout << "Generated Greedy Cycle Indices: ";
