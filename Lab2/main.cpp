@@ -31,6 +31,9 @@ int main()
         std::vector<std::vector<int>> kRegretCycles;
         std::vector<std::vector<int>> kRegretGreedyCycles;
 
+        std::vector<int> kRegretCosts;
+        std::vector<int> kRegretGreedyCosts;
+
         for (int repetition = 0; repetition < 200; repetition++)
         {
             std::cout << repetition << std::endl;
@@ -40,6 +43,7 @@ int main()
             auto end_time = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double, std::milli> timePeriod = end_time - start_time;
             KRegretTimes.push_back(timePeriod.count());
+            kRegretCycles.push_back(kRegretCycle);
 
             std::cout << "KRegretCycle: " << std::endl;
             for(int i: kRegretCycle) {
@@ -47,25 +51,29 @@ int main()
             }
             std::cout << std::endl;
 
-            std::cout << "Cycle cost: " << kRegretGenerator.calculateCycleCost(kRegretCycle) << std::endl;
-            kRegretCycles.push_back(kRegretCycle);
+            int cost = kRegretGenerator.calculateCycleCost(kRegretCycle);
+            kRegretCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
+            std::cout << std::endl;
 
             start_time = std::chrono::high_resolution_clock::now();
             std::vector<int> kRegretGreedyCycle = kRegretGreedyCycleCombinationGenerator.generateCycle(repetition);
             end_time = std::chrono::high_resolution_clock::now();
             timePeriod = end_time - start_time;
             KRegretCombTimes.push_back(timePeriod.count());
+            kRegretGreedyCycles.push_back(kRegretGreedyCycle);
 
             std::cout << "KRegretGreedyCycleCombinationCycle: " << std::endl;
             for(int i: kRegretGreedyCycle) {
                 std::cout << i << " ";
             }
-            std::cout  << std::endl;
-            std::cout << "Cycle cost: " << kRegretGreedyCycleCombinationGenerator.calculateCycleCost(kRegretGreedyCycle) << std::endl;
-            kRegretGreedyCycles.push_back(kRegretGreedyCycle);
+            cost = kRegretGreedyCycleCombinationGenerator.calculateCycleCost(kRegretGreedyCycle);
+            kRegretGreedyCosts.push_back(cost);
+            std::cout << std::endl << "Cycle cost: " << cost;
+            std::cout << std::endl;
         }
-        saveResults(kRegretCycles, fileNameNoExt + "KRegret.csv");
-        saveResults(kRegretGreedyCycles, fileNameNoExt + "KRegretGreedyCombination.csv");
+        saveResults(kRegretCycles, kRegretCosts, fileNameNoExt + "KRegret.csv");
+        saveResults(kRegretGreedyCycles, kRegretGreedyCosts, fileNameNoExt + "KRegretGreedyCombination.csv");
     }
 
     std::vector<std::vector<double>> times = {KRegretTimes, KRegretCombTimes};
