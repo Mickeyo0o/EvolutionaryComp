@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <chrono>
 #include "HandleData.h"
 #include "Node.h"
 #include "RandomHamiltonianCycleGenerator.h"
@@ -14,7 +15,10 @@ using namespace std;
 
 int main()
 {
+
     const std::string fileNames[] = {"TSPA", "TSPB"};
+    std::vector<std::vector<double>> allTimes;
+
 
     for(size_t fileNameId = 0; fileNameId <= 1; fileNameId++) {
         std::string fileNameNoExt = fileNames[fileNameId];
@@ -37,6 +41,8 @@ int main()
                     bool useRandomStart = useRandomStartI == 0;
                     std::vector<std::vector<int>> cycles;
                     std::cout<<"Instance name: " << fileNameNoExt << " isGreedy: " << isGreedy << " swapEdges: " << swapEdges << " useRandomStart: " << useRandomStart << std::endl;
+                    std::vector<int> costs;
+                    std::vector<double> times;
                     for (int repetition = 0; repetition < 200; repetition++)
                     {
                         std::cout << repetition << std::endl;
@@ -55,20 +61,27 @@ int main()
                             std::cout << "Score before: " << regretGenerator.calculateCycleCost(initialCycle) << " ";
                         }
 
+
+                        auto start_time = std::chrono::high_resolution_clock::now();
                         LocalSearchGenerator localRandomGenerator(&costDistanceInfo, initialCycle, isGreedy, swapEdges, repetition);
                         std::vector<int> optimizedInitialCycle = localRandomGenerator.generateCycle(repetition);
+                        auto end_time = std::chrono::high_resolution_clock::now();
+                        std::chrono::duration<double, std::milli> timePeriod = end_time - start_time;
+                        times.push_back(timePeriod.count());
 
-                        std::cout << "Score after: " << localRandomGenerator.calculateCycleCost(optimizedInitialCycle) << std::endl;
+                        costs.push_back(localRandomGenerator.calculateCycleCost(optimizedInitialCycle));
                         for(int n: optimizedInitialCycle) {
                             std::cout << n << " ";
                         }
                         std::cout << std::endl;
                         cycles.push_back(optimizedInitialCycle);
                     }
-                    saveResults(cycles, fileNameNoExt + (isGreedy?"Greedy":"Steepest") + (swapEdges?"IntraSwapEdges":"IntraSwapNodes") + (useRandomStart?"RandomStart":"kRegretWeightedStart")+".csv");
+                    saveResults(cycles, costs, fileNameNoExt + (isGreedy?"Greedy":"Steepest") + (swapEdges?"IntraSwapEdges":"IntraSwapNodes") + (useRandomStart?"RandomStart":"kRegretWeightedStart")+".csv");
+                    allTimes.push_back(times);
                 }
             }
         }
     }
+    saveTimes(allTimes, "times.csv");
     return 0;
 }

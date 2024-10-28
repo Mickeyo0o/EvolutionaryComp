@@ -32,7 +32,6 @@ std::vector<int> LocalSearchGenerator::generateCycle(int start_pos)
 
     do
     {
-        auto start_time = std::chrono::high_resolution_clock::now();
         improvementAchievedLastIter = false;
         std::vector<NeighbourhoodMove*> possibleMoves;
 
@@ -78,11 +77,6 @@ std::vector<int> LocalSearchGenerator::generateCycle(int start_pos)
         {
             delete neighbourhoodMove;
         }
-
-        auto end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double, std::milli> timePeriod = end_time - start_time;
-
-       // std::cout << "Step took " << timePeriod.count() << "ms" << std::endl;
 
     } while(improvementAchievedLastIter);
 

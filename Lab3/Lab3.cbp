@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +34,29 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/CostDistanceInfo.h" />
+		<Unit filename="include/Generator.h" />
+		<Unit filename="include/HandleData.h" />
+		<Unit filename="include/InterNodeNeighbourhoodMove.h" />
+		<Unit filename="include/IntraNodeChangeEdgeNeighbourhoodMove.h" />
+		<Unit filename="include/IntraNodeChangeNodeNeighbourhoodMove.h" />
+		<Unit filename="include/KRegretGreedyCycleCombinationGenerator.h" />
+		<Unit filename="include/LocalSearchGenerator.h" />
+		<Unit filename="include/NeighbourhoodMove.h" />
+		<Unit filename="include/Node.h" />
+		<Unit filename="include/RandomHamiltonianCycleGenerator.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/CostDistanceInfo.cpp" />
+		<Unit filename="src/Generator.cpp" />
+		<Unit filename="src/HandleData.cpp" />
+		<Unit filename="src/InterNodeNeighbourhoodMove.cpp" />
+		<Unit filename="src/IntraNodeChangeEdgeNeighbourhoodMove.cpp" />
+		<Unit filename="src/IntraNodeChangeNodeNeighbourhoodMove.cpp" />
+		<Unit filename="src/KRegretGreedyCycleCombinationGenerator.cpp" />
+		<Unit filename="src/LocalSearchGenerator.cpp" />
+		<Unit filename="src/NeighbourhoodMove.cpp" />
+		<Unit filename="src/Node.cpp" />
+		<Unit filename="src/RandomHamiltonianCycleGenerator.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
