@@ -21,11 +21,6 @@ int IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch::calculateFunctionDelta(cons
     int node1EndId = currentCycle[cyclePos1EdgeEnd];
     int node2EndId = currentCycle[cyclePos2EdgeEnd];
 
-    n1s = node1StartId;
-    n2s = node2StartId;
-    n1e = node1EndId;
-    n2e = node2EndId;
-
     int currentValue = costDistanceInfo->getDistance(node1StartId, node1EndId) + costDistanceInfo->getDistance(node2StartId, node2EndId);
     int newPossibleValue = costDistanceInfo->getDistance(node1EndId, node2EndId) + costDistanceInfo->getDistance(node1StartId, node2StartId);
     return newPossibleValue - currentValue;
@@ -33,6 +28,16 @@ int IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch::calculateFunctionDelta(cons
 
 void IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch::performMove(std::vector<int>& currentCycle, int* posInCycleCache)
 {
+    int cyclePos1EdgeEnd = (cyclePos1EdgeStart + 1) % currentCycle.size();
+    int cyclePos2EdgeEnd = (cyclePos2EdgeStart + 1) % currentCycle.size();
+    int node1StartId = currentCycle[cyclePos1EdgeStart];
+    int node2StartId = currentCycle[cyclePos2EdgeStart];
+    int node1EndId = currentCycle[cyclePos1EdgeEnd];
+    int node2EndId = currentCycle[cyclePos2EdgeEnd];
+    n1s = node1StartId;
+    n2s = node2StartId;
+    n1e = node1EndId;
+    n2e = node2EndId;
     size_t startReverseOffset = (cyclePos1EdgeStart + 1) % currentCycle.size();
     if(cyclePos2EdgeStart == (currentCycle.size() - 1))
     {

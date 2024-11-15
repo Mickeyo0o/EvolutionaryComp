@@ -21,17 +21,20 @@ int IntraNodeChangeEdgeNeighbourhoodMove::calculateFunctionDelta(const CostDista
 void IntraNodeChangeEdgeNeighbourhoodMove::performMove(std::vector<int>& currentCycle, int* cyclePosCache)
 {
     size_t startReverseOffset = cyclePosCache[node1EdgeEnd];
-    int cyclePos2EdgeStart = cyclePosCache[node2EdgeStart];
-    if(cyclePos2EdgeStart == (currentCycle.size() - 1))
+    size_t endReverseOffset = cyclePosCache[node2EdgeStart];
+    int n = currentCycle.size();
+    if (n == 0) return;
+
+    startReverseOffset %= n;
+    endReverseOffset %= n;
+    while (true)
     {
-        std::reverse(currentCycle.begin() + startReverseOffset, currentCycle.end());
-    }
-    else
-    {
-        size_t endReverseOfsset = cyclePosCache[node2EdgeEnd];
-        size_t start_o = std::min(startReverseOffset, endReverseOfsset);
-        size_t end_o = std::max(endReverseOfsset, startReverseOffset);
-        std::reverse(currentCycle.begin() + start_o, currentCycle.begin() + end_o);
+        std::swap(currentCycle[startReverseOffset], currentCycle[endReverseOffset]);
+        startReverseOffset = (startReverseOffset + 1) % n;
+        if (startReverseOffset == endReverseOffset) break;
+
+        endReverseOffset = (endReverseOffset - 1 + n) % n;
+        if (startReverseOffset == endReverseOffset) break;
     }
     for(int posInCycle = 0; posInCycle < currentCycle.size(); posInCycle++)
     {
@@ -91,7 +94,7 @@ bool IntraNodeChangeEdgeNeighbourhoodMove::isApplicable(const std::vector<int>& 
     bool areAllNodesInCycle = (edge1StartPos != -1 && edge1EndPos != -1 && edge2StartPos != -1 && edge2EndPos != -1);
     int diffEdge1 = edge1EndPos - edge1StartPos;
     int diffEdge2 = edge2EndPos - edge2StartPos;
-    return areAllNodesInCycle && ((diffEdge1 == 1 && diffEdge2 == 1));
+    return areAllNodesInCycle && ((diffEdge1 == 1 && diffEdge2 == 1) || (diffEdge1 == -1 && diffEdge2 == -1));
 }
 
 bool IntraNodeChangeEdgeNeighbourhoodMove::shouldBeLeftInLM(const std::vector<int>& currentCycle, int* cyclePosCache)
@@ -101,10 +104,11 @@ bool IntraNodeChangeEdgeNeighbourhoodMove::shouldBeLeftInLM(const std::vector<in
     int edge2StartPos = cyclePosCache[node2EdgeStart];
     int edge2EndPos = cyclePosCache[node2EdgeEnd];
 
-    bool areAllNodesInCycle = (edge1StartPos != -1 && edge1EndPos != -1 && edge2StartPos != -1 && edge2EndPos != -1);
+    bool areAllNodesInCycle = !(edge1StartPos == -1 || edge1EndPos == -1 || edge2StartPos == -1 || edge2EndPos == -1);
     int diffEdge1 = edge1EndPos - edge1StartPos;
     int diffEdge2 = edge2EndPos - edge2StartPos;
-    return areAllNodesInCycle && ((abs(diffEdge1) == 1 && abs(diffEdge2) == 1));
+
+    return areAllNodesInCycle && ((diffEdge1 * diffEdge2) == -1 || (diffEdge1 == -1 && diffEdge2 == -1));
 }
 
 std::vector<int> IntraNodeChangeEdgeNeighbourhoodMove::getEnteringIds()

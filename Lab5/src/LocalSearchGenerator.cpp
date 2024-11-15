@@ -60,7 +60,6 @@ std::vector<int> LocalSearchGenerator::generateCycle(int start_pos)
 
         if(bestMoveinThisIter != nullptr)
         {
-            std::cout << bestMoveinThisIter->debugInfo() << " " << bestIncreaseInThisIter << std::endl;
             bestMoveinThisIter->performMove(ret, nullptr);
         }
         for(NeighbourhoodMove* neighbourhoodMove: interMoves)
@@ -70,11 +69,9 @@ std::vector<int> LocalSearchGenerator::generateCycle(int start_pos)
 
         auto end_time = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::milli> timePeriod = end_time - start_time;
-
        // std::cout << "Step took " << timePeriod.count() << "ms" << std::endl;
 
     } while(improvementAchievedLastIter);
-    std::cout << "-----------" << std::endl;
     for(NeighbourhoodMove* neighbourhoodMove: intraMoves)
     {
         delete neighbourhoodMove;

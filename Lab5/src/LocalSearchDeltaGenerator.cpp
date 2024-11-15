@@ -55,7 +55,7 @@ std::vector<int> LocalSearchDeltaGenerator::generateCycle(int start_pos)
         {
             if(nMove->isApplicable(currentCycle, positionInCycleCache))
             {
-                std::cout << nMove->debugInfo() << " " << nMove->functionDelta << std::endl;
+                //std::cout << nMove ->debugInfo() << std::endl;
                 nMove->performMove(currentCycle, positionInCycleCache);
                 moveFound = true;
                 enteringNodesIds = nMove->getEnteringIds();
@@ -114,35 +114,23 @@ void LocalSearchDeltaGenerator::generateMoves(std::set<NeighbourhoodMove*, bool(
 
         for(int nodeInCycleId: currentCycle)
         {
-            if(nodeInCycleId == enteringId) continue;
             int nodeInCyclePosInCycle = cyclePosCache[nodeInCycleId];
             int nodeInCycleSuccPos = (nodeInCyclePosInCycle + 1) % currentCycle.size();
             int nodeInCycleSucc = currentCycle[nodeInCycleSuccPos];
 
-            IntraNodeChangeEdgeNeighbourhoodMove* nMove;
-            IntraNodeChangeEdgeNeighbourhoodMove* nMoveReversed;
-            if(nodeInCyclePosInCycle < enteringIdSuccId)
-            {
-                nMoveReversed = new IntraNodeChangeEdgeNeighbourhoodMove(
-                    enteringIdSuccId, nodeInCycleSucc,
-                    enteringId, nodeInCycleId
-                );
-                nMove = new IntraNodeChangeEdgeNeighbourhoodMove(
-                    enteringId, nodeInCycleId,
-                    enteringIdSuccId, nodeInCycleSucc
-                );
-            }
-            else
-            {
-                nMoveReversed = new IntraNodeChangeEdgeNeighbourhoodMove(
-                    nodeInCycleSucc, enteringIdSuccId,
-                    nodeInCycleId, enteringId
-                );
-                nMove = new IntraNodeChangeEdgeNeighbourhoodMove(
-                    nodeInCycleId, enteringId,
-                    nodeInCycleSucc, enteringIdSuccId
-                );
-            }
+            if(enteringIdSuccPos == nodeInCyclePosInCycle ||
+               enteringIdCyclePos == nodeInCycleSuccPos ||
+               enteringId == nodeInCycleId) continue;
+
+            IntraNodeChangeEdgeNeighbourhoodMove* nMove = new IntraNodeChangeEdgeNeighbourhoodMove(
+                enteringId, nodeInCycleId,
+                enteringIdSuccId, nodeInCycleSucc
+            );
+            IntraNodeChangeEdgeNeighbourhoodMove* nMoveReversed = new IntraNodeChangeEdgeNeighbourhoodMove(
+                enteringIdSuccId, nodeInCycleSucc,
+                enteringId, nodeInCycleId
+            );
+
             int evaluation = nMove->calculateFunctionDelta(costDistanceInfo, currentCycle, cyclePosCache);
             if(evaluation < 0)
             {

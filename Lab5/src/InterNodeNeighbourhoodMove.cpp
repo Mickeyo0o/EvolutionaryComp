@@ -34,6 +34,7 @@ int InterNodeNeighbourhoodMove::calculateFunctionDelta(const CostDistanceInfo* c
 void InterNodeNeighbourhoodMove::performMove(std::vector<int>& currentCycle, int* cyclePosCache)
 {
     int cyclePos = cyclePosCache[nodeInCycleId];
+
     currentCycle[cyclePos] = nodeToAddId;
     cyclePosCache[nodeInCycleId] = -1;
     cyclePosCache[nodeToAddId] = cyclePos;
