@@ -115,3 +115,119 @@
 	<algorithm>
 	"NeighbourhoodMove.h"
 
+1731871593 source:d:\github projects\evolutionarycomp\lab5\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<chrono>
+	"HandleData.h"
+	"RandomHamiltonianCycleGenerator.h"
+	"LocalSearchGenerator.h"
+	"LocalSearchDeltaGenerator.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\handledata.h
+	<fstream>
+	<sstream>
+	<iostream>
+	<vector>
+	"Node.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\node.h
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\randomhamiltoniancyclegenerator.h
+	"Generator.h"
+	<random>
+	<algorithm>
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\generator.h
+	"CostDistanceInfo.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\costdistanceinfo.h
+	<vector>
+	<cmath>
+	"Node.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\localsearchgenerator.h
+	<iterator>
+	<limits>
+	<iostream>
+	<algorithm>
+	<chrono>
+	<random>
+	"Generator.h"
+	"InterNodeNeighbourhoodMoveLocalSearch.h"
+	"IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\internodeneighbourhoodmovelocalsearch.h
+	<unordered_set>
+	<iostream>
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\neighbourhoodmove.h
+	<string>
+	"CostDistanceInfo.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\intranodechangeedgeneighbourhoodmovelocalsearch.h
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\localsearchdeltagenerator.h
+	<set>
+	"Generator.h"
+	"NeighbourhoodMove.h"
+	"InterNodeNeighbourhoodMove.h"
+	"IntraNodeChangeEdgeNeighbourhoodMove.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\internodeneighbourhoodmove.h
+	<unordered_set>
+	<iostream>
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1731871593 d:\github projects\evolutionarycomp\lab5\include\intranodechangeedgeneighbourhoodmove.h
+	<iostream>
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\costdistanceinfo.cpp
+	"CostDistanceInfo.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\generator.cpp
+	"Generator.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\handledata.cpp
+	"HandleData.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\internodeneighbourhoodmove.cpp
+	"InterNodeNeighbourhoodMove.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\internodeneighbourhoodmovelocalsearch.cpp
+	"InterNodeNeighbourhoodMoveLocalSearch.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\intranodechangeedgeneighbourhoodmove.cpp
+	"IntraNodeChangeEdgeNeighbourhoodMove.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\intranodechangeedgeneighbourhoodmovelocalsearch.cpp
+	"IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\localsearchdeltagenerator.cpp
+	"LocalSearchDeltaGenerator.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\localsearchgenerator.cpp
+	"LocalSearchGenerator.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\neighbourhoodmove.cpp
+	"NeighbourhoodMove.h"
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\node.cpp
+	"Node.h"
+	<iostream>
+
+1731871593 source:d:\github projects\evolutionarycomp\lab5\src\randomhamiltoniancyclegenerator.cpp
+	"RandomHamiltonianCycleGenerator.h"
+	<random>
+	<algorithm>
+

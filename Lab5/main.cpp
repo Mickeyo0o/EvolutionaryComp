@@ -98,11 +98,11 @@ int main()
             avgDeltaCost += c;
         }
         std::cout << "\n\n\n\n\n\n\n\n\nNORMAL AVG: "<<avgNormalCost / localNormalCosts.size() << " DELTA AVG: " << avgDeltaCost / localDeltaCosts.size() << std::endl;
-        /*saveResults(randomCycles, randomCosts, fileNameNoExt + "_Random.csv");
+        saveResults(randomCycles, randomCosts, fileNameNoExt + "_Random.csv");
         saveResults(localNormalCycles, localNormalCosts, fileNameNoExt + "_NormalLocalSearch.csv");
-        saveResults(localCandidateCycles, localCandidateCosts, fileNameNoExt + "_CandidateLocalSearch.csv");*/
+        saveResults(localDeltaCycles, localDeltaCosts, fileNameNoExt + "_DeltaLocalSearch.csv");
     }
-    allTimes = {randomTimes, localNormalTimes};
-    //saveTimes(allTimes, "times.csv");
+    allTimes = {localNormalTimes, localDeltaTimes};
+    saveTimes(allTimes, "times.csv");
     return 0;
 }
