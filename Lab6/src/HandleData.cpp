@@ -61,4 +61,17 @@ void saveTimes(std::vector<std::vector<double>> times, std::string fileName) {
     file.close();
 }
 
+void saveRuns(std::vector<int> runs, std::string fileName) {
+    std::ofstream file(fileName);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file" << std::endl;
+        throw 1;
+    }
+
+    for (size_t row = 0; row < runs.size(); ++row) {
+        file << runs[row] << "\n";
+    }
+    file.close();
+}
+
 

@@ -17,6 +17,7 @@ int main()
     const std::string fileNames[] = {"TSPA", "TSPB"};
     std::vector<std::vector<double>> allTimes;
     std::vector<double> localMultiTimes; // Iterated search runs as long as multi start local search, so its times are the same
+    std::vector<int> ilsLSRuns;
 
     for(size_t fileNameId = 0; fileNameId <= 1; fileNameId++) {
         std::string fileNameNoExt = fileNames[fileNameId];
@@ -55,6 +56,7 @@ int main()
             std::chrono::duration<double, std::milli> iterTime = endTime - startTime;
 
             localIteratedCycles.push_back(iterCycle);
+            ilsLSRuns.push_back(iterGenerator.iterationsDone);
 
             int optimizedCostMulti = multiGenerator.calculateCycleCost(multiCycle);
             int optimizedCostIter = iterGenerator.calculateCycleCost(iterCycle);
@@ -86,5 +88,6 @@ int main()
     }
     allTimes = {localMultiTimes};
     saveTimes(allTimes, "times.csv");
+    saveRuns(ilsLSRuns, "ILSruns.csv");
     return 0;
 }

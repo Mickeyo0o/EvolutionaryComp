@@ -38,9 +38,12 @@
 		<Unit filename="include/Generator.h" />
 		<Unit filename="include/HandleData.h" />
 		<Unit filename="include/InterNodeNeighbourhoodMove.h" />
+		<Unit filename="include/InterNodeNeighbourhoodMoveLocalSearch.h" />
 		<Unit filename="include/IntraNodeChangeEdgeNeighbourhoodMove.h" />
+		<Unit filename="include/IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h" />
 		<Unit filename="include/IteratedLocalSearchGenerator.h" />
 		<Unit filename="include/LocalSearchDeltaGenerator.h" />
+		<Unit filename="include/LocalSearchGenerator.h" />
 		<Unit filename="include/MultipleStartLocalSearchGenerator.h" />
 		<Unit filename="include/NeighbourhoodMove.h" />
 		<Unit filename="include/Node.h" />
@@ -50,9 +53,12 @@
 		<Unit filename="src/Generator.cpp" />
 		<Unit filename="src/HandleData.cpp" />
 		<Unit filename="src/InterNodeNeighbourhoodMove.cpp" />
+		<Unit filename="src/InterNodeNeighbourhoodMoveLocalSearch.cpp" />
 		<Unit filename="src/IntraNodeChangeEdgeNeighbourhoodMove.cpp" />
+		<Unit filename="src/IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.cpp" />
 		<Unit filename="src/IteratedLocalSearchGenerator.cpp" />
 		<Unit filename="src/LocalSearchDeltaGenerator.cpp" />
+		<Unit filename="src/LocalSearchGenerator.cpp" />
 		<Unit filename="src/MultipleStartLocalSearchGenerator.cpp" />
 		<Unit filename="src/NeighbourhoodMove.cpp" />
 		<Unit filename="src/Node.cpp" />
