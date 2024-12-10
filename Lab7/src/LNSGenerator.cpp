@@ -72,10 +72,10 @@ void LNSGenerator::destroy(std::vector<int>& cycle)
 
         for(int i = 1; i < costsAndNodes.size(); i++)
         {
-            auto currPair = costsAndNodes[i];
-            auto prevPair = costsAndNodes[i - 1];
-            currPair.first /= costSum;
-            currPair.first += prevPair.first;
+            auto* currPair = &costsAndNodes[i];
+            auto* prevPair = &costsAndNodes[i - 1];
+            currPair->first /= costSum;
+            currPair->first += prevPair->first;
         }
         float currPick = ((float)rand() / RAND_MAX);
         int selectedNodeToRemove = costsAndNodes[0].second;

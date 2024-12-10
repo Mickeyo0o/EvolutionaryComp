@@ -53,7 +53,7 @@
 	<iostream>
 	"Generator.h"
 
-1733254059 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab7\src\lnsgenerator.cpp
+1733859614 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab7\src\lnsgenerator.cpp
 	"LNSGenerator.h"
 
 1733254059 c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab7\include\lnsgenerator.h
@@ -97,7 +97,7 @@
 	<random>
 	<algorithm>
 
-1733252760 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab7\main.cpp
+1733859405 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab7\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>

@@ -33,7 +33,7 @@ int main()
 
         int nodesToSelect = (nodeList.size() + 1 ) / 2;
 
-        LNSGenerator lnsGenerator(&costDistanceInfo, nodesToSelect, correctTimesPerFile[fileNameId], 0.25);
+        LNSGenerator lnsGenerator(&costDistanceInfo, nodesToSelect, correctTimesPerFile[fileNameId], 0.3);
 
         for(int rep = 0; rep < 20; rep++)
         {
