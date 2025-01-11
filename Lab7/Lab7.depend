@@ -109,7 +109,7 @@
 	"LocalSearchGenerator.h"
 	"LNSGenerator.h"
 
-1733688149 source:d:\github projects\evolutionarycomp\lab7\main.cpp
+1733862639 source:d:\github projects\evolutionarycomp\lab7\main.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -165,7 +165,7 @@
 	<iostream>
 	"Generator.h"
 
-1733688149 source:d:\github projects\evolutionarycomp\lab7\src\lnsgenerator.cpp
+1733862639 source:d:\github projects\evolutionarycomp\lab7\src\lnsgenerator.cpp
 	"LNSGenerator.h"
 
 1733688149 d:\github projects\evolutionarycomp\lab7\include\lnsgenerator.h
