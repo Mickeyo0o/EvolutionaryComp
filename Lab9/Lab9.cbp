@@ -41,6 +41,7 @@
 		<Unit filename="include/InterNodeNeighbourhoodMove.h" />
 		<Unit filename="include/IntraNodeChangeEdgeNeighbourhoodMove.h" />
 		<Unit filename="include/IntraNodeChangeNodeNeighbourhoodMove.h" />
+		<Unit filename="include/KRegretGreedyCycleCombinationGenerator.h" />
 		<Unit filename="include/LocalSearchGenerator.h" />
 		<Unit filename="include/NeighbourhoodMove.h" />
 		<Unit filename="include/Node.h" />
@@ -53,6 +54,7 @@
 		<Unit filename="src/InterNodeNeighbourhoodMove.cpp" />
 		<Unit filename="src/IntraNodeChangeEdgeNeighbourhoodMove.cpp" />
 		<Unit filename="src/IntraNodeChangeNodeNeighbourhoodMove.cpp" />
+		<Unit filename="src/KRegretGreedyCycleCombinationGenerator.cpp" />
 		<Unit filename="src/LocalSearchGenerator.cpp" />
 		<Unit filename="src/NeighbourhoodMove.cpp" />
 		<Unit filename="src/Node.cpp" />
