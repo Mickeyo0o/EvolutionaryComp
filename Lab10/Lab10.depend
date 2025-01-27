@@ -437,3 +437,150 @@
 1737635388 source:c:\users\kajetan\documents\programowanie\ec\evolutionarycomp\lab10 — kopia\src\localsearchcandidatemovesgenerator.cpp
 	"LocalSearchCandidateMovesGenerator.h"
 
+1737827041 source:d:\github projects\evolutionarycomp\lab10\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<chrono>
+	"HandleData.h"
+	"Node.h"
+	"RandomHamiltonianCycleGenerator.h"
+	"CostDistanceInfo.h"
+	"LocalSearchGenerator.h"
+	"HEAGenerator.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\handledata.h
+	<fstream>
+	<sstream>
+	<iostream>
+	<vector>
+	"Node.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\node.h
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\randomhamiltoniancyclegenerator.h
+	"Generator.h"
+	<random>
+	<algorithm>
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\generator.h
+	"CostDistanceInfo.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\costdistanceinfo.h
+	<vector>
+	<cmath>
+	"Node.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\localsearchgenerator.h
+	<iterator>
+	<limits>
+	<iostream>
+	<algorithm>
+	<chrono>
+	<random>
+	"Generator.h"
+	"InterNodeNeighbourhoodMoveLocalSearch.h"
+	"IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\internodeneighbourhoodmovelocalsearch.h
+	<unordered_set>
+	<iostream>
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\neighbourhoodmove.h
+	<string>
+	"CostDistanceInfo.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\intranodechangeedgeneighbourhoodmovelocalsearch.h
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\heagenerator.h
+	<iostream>
+	<time.h>
+	<string>
+	<chrono>
+	<cmath>
+	"Generator.h"
+	"RandomHamiltonianCycleGenerator.h"
+	"LocalSearchCandidateMovesGenerator.h"
+	"InterNodeNeighbourhoodMoveLocalSearch.h"
+	"IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h"
+	"KRegretGreedyCycleCombinationGenerator.h"
+	<algorithm>
+	<set>
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\localsearchcandidatemovesgenerator.h
+	<vector>
+	<algorithm>
+	<iostream>
+	<chrono>
+	"Generator.h"
+	"Node.h"
+	"NeighbourhoodMove.h"
+	"IntraNodeChangeEdgeNeighbourhoodMove.h"
+	"InterNodeNeighbourhoodMove.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\intranodechangeedgeneighbourhoodmove.h
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\internodeneighbourhoodmove.h
+	<unordered_set>
+	<iostream>
+	<algorithm>
+	"NeighbourhoodMove.h"
+
+1737827041 d:\github projects\evolutionarycomp\lab10\include\kregretgreedycyclecombinationgenerator.h
+	<algorithm>
+	<iostream>
+	"Generator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\costdistanceinfo.cpp
+	"CostDistanceInfo.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\generator.cpp
+	"Generator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\handledata.cpp
+	"HandleData.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\heagenerator.cpp
+	"HEAGenerator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\internodeneighbourhoodmove.cpp
+	"InterNodeNeighbourhoodMove.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\internodeneighbourhoodmovelocalsearch.cpp
+	"InterNodeNeighbourhoodMoveLocalSearch.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\intranodechangeedgeneighbourhoodmove.cpp
+	"IntraNodeChangeEdgeNeighbourhoodMove.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\intranodechangeedgeneighbourhoodmovelocalsearch.cpp
+	"IntraNodeChangeEdgeNeighbourhoodMoveLocalSearch.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\kregretgreedycyclecombinationgenerator.cpp
+	"KRegretGreedyCycleCombinationGenerator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\localsearchcandidatemovesgenerator.cpp
+	"LocalSearchCandidateMovesGenerator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\localsearchgenerator.cpp
+	"LocalSearchGenerator.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\neighbourhoodmove.cpp
+	"NeighbourhoodMove.h"
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\node.cpp
+	"Node.h"
+	<iostream>
+
+1737827041 source:d:\github projects\evolutionarycomp\lab10\src\randomhamiltoniancyclegenerator.cpp
+	"RandomHamiltonianCycleGenerator.h"
+	<random>
+	<algorithm>
+
